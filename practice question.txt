@@ -1,0 +1,927 @@
+public class MyClass {
+    int x=013;
+    void go (final int i){
+        System.out.println(i/x+" "+a);
+    }
+    public static void main(String args[]) {
+      MyClass my = new MyClass();
+      my.go(22);
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+    int x=5, y=5;
+    void print (int x){
+        System.out.println(x+y);
+        int y=4;
+        // System.out.println(x+y);
+    }
+    public static void main(String args[]) {
+      MyClass my = new MyClass();
+      my.print(2);
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+class GFG 
+{ 
+    public static void main(String[] args) 
+    { 
+    Integer X = new Integer(10); 
+    Integer Y = 10; 
+  
+    // Due to auto-boxing, a new Wrapper object 
+    // is created which is pointed by Y 
+    System.out.println(X == Y); 
+    } 
+} 
+Output: false
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+// file name: Main.java 
+public class Main { 
+    public static void main(String args[]) { 
+          Integer x = new Integer(40), y = new Integer(40); 
+         if (x == y) 
+            System.out.println("Same"); 
+         else
+            System.out.println("Not Same"); 
+    } 
+} 
+Output: Not Same
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+// file name: Main.java 
+public class Main { 
+    public static void main(String args[]) { 
+         Integer x = 40, y = 40; 
+         if (x == y) 
+            System.out.println("Same"); 	
+         else
+            System.out.println("Not Same"); 
+    } 
+} 
+Output: Same
+
+// file name: Main.java 
+public class Main { 
+    public static void main(String args[]) { 
+         Integer x = 128, y = 128;          // x>=-128 and x<=127 otherwise, it will create new object.
+         if (x == y) 
+            System.out.println("Same"); 
+         else
+            System.out.println("Not Same"); 
+    } 
+} 
+Output: Not Same
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+    public static void main(String args[]) {
+      Integer i1=100, i2=128, i3=128, i4=100;
+    //   System.out.println(i1==i4);
+    //   System.out.println(i2==i3);
+      if((i1==i4)^(i2==i3))
+        System.out.println(i1);
+      else if((i1==i4)|(i2==i3))
+        System.out.println(i3);
+      else
+        System.out.println(i3+i4);
+    }
+}
+Output : 100
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+// Bitwise XOR (^) – 
+This operator is a binary operator, denoted by ‘^’. It returns bit by bit XOR of input values, i.e, if corresponding bits are different, it gives 1, else it gives 0. 
+
+https://www.geeksforgeeks.org/bitwise-operators-in-java/
+
+public class MyClass {
+    public static void main(String args[]) {
+      Integer x=8;
+        System.out.println(x.SIZE);  // 8*4=32
+        System.out.println(x.BYTES); //4
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+    static Integer y;
+    public static void main(String args[]) {
+      int x=10;
+        //System.out.println(y);  //y is null
+        if(x++>10 & y++ == 1) y+=10;  // so it will throw null pointer exception
+        System.out.println(y); 
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+    static Integer y;
+    public static void main(String args[]) {
+      float f=12.0f;
+      double d=f++; // d=12.0 f=13.0
+      long l=12;
+      d--; // d=11.0
+      d-=0.3; // d=10.7
+    //   System.out.println(f);
+    //   System.out.println(d);
+    //   System.out.println(l);   
+      System.out.println(f==d); 
+      System.out.println(d==l); 
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+    static Integer y;
+    public static void main(String args[]) {
+      Integer i=128;
+      Double d=10.0;
+      Integer i1=128;
+      int ii=128;
+      double dd=10.0;
+      System.out.println(i);
+      System.out.println(d);
+      System.out.println(ii); 
+      System.out.println(dd);  
+      System.out.println(i==i1);  // false
+      System.out.println(i.equals(i1)); // true
+      System.out.println(i==ii);  // true
+      System.out.println(d==dd);  // true
+      System.out.println(i.equals(d)); // false
+      System.out.println(ii==dd);  // false
+      System.out.println(i.equals(ii)); // true
+      System.out.println(d.equals(dd)); // true
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+    int i;
+    public static void main(String args[]) {
+      float F=1.03f;
+      new MyClass().divide(F);
+    }
+    
+    void divide(double D){
+    //   System.out.println(i); i=0
+      System.out.println(D/i);}
+}
+Output: infinity
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+    int i;
+    public static void main(String args[]) {
+      Float F=1.03f;
+      new MyClass().divide(F);
+    }
+    
+    void divide(Double D){
+    //   System.out.println(i); i=0
+      System.out.println(D/i);}
+}
+
+/MyClass.java:5: error: incompatible types: Float(WRAPPER CLASS) cannot be converted to Double (WRAPPER CLASS)
+      new MyClass().divide(F);
+                           ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		final int s = 2;
+//		int x=2;
+		switch (s) {
+		case 1: System.out.println("A"); break;
+		case x-1: System.out.println("B");  // constant expression required in case statement
+		case x: System.out.println("C"); break;
+		case x+1: System.out.println("D"); break;
+		default: System.out.println("F"); break;
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	int i;
+
+	public static void main(String args[]) {
+		double in = (double)(Math.random()*4);
+		switch (in) { // Cannot switch on a value of type double. Only convertible int values, strings or enum variables are permitted
+		case 1: System.out.println("A"); break;
+		case 2: System.out.println("B"); 
+		case 3: System.out.println("C"); 
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	static boolean b=false;
+
+	public static void main(String args[]) {
+		String str;
+		if(b=true) {
+			str="true"; 
+		}
+		str = b?str:"false";  // The local variable str may not have been initialized
+		System.out.println(str);
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	static boolean b=false;
+
+	public static void main(String args[]) {
+		String str="";
+//		System.out.println(b==true);  // false
+		if(b=true) {
+//			System.out.println("aa");
+			str="true"; 
+		}
+		str = b?str:"false";
+		System.out.println(str);
+	}
+}
+Output: true
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+
+	public static void main(String args[]) {
+		final int y = 2;
+		int x=2;
+		switch (x+y) {
+		case y: System.out.println("A"); break;   // Compilation fails
+		case 2: System.out.println("B");  // constant expression required in case statement
+		default: System.out.println("F"); break;
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+public class MyClass {
+	public static void main(String args[]) {
+		int a1[] = {2,-1,4,5,3};
+		int a2[] = {2,-1,4,5,3};
+		int a3[] = a1;
+		System.out.println(a1); // [I@372f7a8d
+		System.out.println(a2); // [I@2f92e0f4 
+		System.out.println(a3); // [I@372f7a8d
+		System.out.println(a1==a2); // false
+		System.out.println(Arrays.equals(a1,a2)); // true
+		System.out.println(Arrays.deepEquals(a1,a2)); //compilation falls
+		}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+		static long index = 2;
+	public static void main(String args[]) {
+		int [][]arr = {{},{1,2,3},{4,5}}; 
+		System.out.println(arr[index][1]); //Type mismatch: cannot convert from long to int
+		}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		int y = 0;
+		while (y-- < 10) {
+//			System.out.println(y); // it will provide infinite loop
+			continue;
+//			System.out.println("z"); // compilation fails as code will not reach
+		}
+		
+		//if System.out.println(y); is not written, the following code will run
+		System.out.println(y); // y=2147483646
+		String message = y > 10 ? "Greater than" : "less than";
+		System.out.println(message + " 10");  // Greater than 10
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	static int x = 1;
+
+	public static void main(String args[]) {
+		int[] nums = { 0, 1, 2, 3, 4 };
+		for (int x : nums) {
+			System.out.println(x);continue;
+//			System.out.println(x + MyClass.x); // unreahable code so compilation falls
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		int[] a = { 3, 2, 1, 0 };
+		int y = a.length;
+		int x = y - 1;
+		while (y >= 0) {
+			System.out.print(a[--y]);
+		}
+	}
+}
+Output: 0123 followed by an exception
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		int x = 0;
+		String [] animal = new String[3];
+		do {animal[x]="Cat"; x++;}while(false);
+		do {animal[x]="Dog";}while(x>animal[x++].length());
+		do {animal[x]="Rat"; }while(x>3);
+		for(String s: animal) {
+			System.out.print(s + " ");
+		}
+	}
+}
+Output: Cat Dog Rat 
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		
+		int arr[][] = { { 1, 11 }, { 1 }, { 1, 11 } };
+		for (int x = 0; x < arr.length; x++) {
+			for (int y : arr[x]) System.out.println(y); // it will print all the elements of array
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		int arr[] = { 1, 2, 3, 4, 5, 6 };
+		int i = arr.length - 1;
+		while (i >= 0) {
+			if (i % 2 != 0) {
+				System.out.println(arr[i]);
+				i--;
+			}
+		}
+	}
+}
+Output: 6 will be printed and will be hang in loop
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		Loop1: for (int x = 0; x < 3; x++) {
+			for (int y = 0; y < 3; y++) {
+				if (y == 2)
+					continue;
+				if ((y == 2) && x == 2)
+					break Loop1;
+				System.out.print(y);
+			}
+		}
+	}
+}
+Output: 010101
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		Loop1: for (int x = 0; x < 5; x++) {
+				if (y == 3) // compilation error
+					break Loop1;
+				for (int y = 0; y < 3; y++) {
+				if (y == 2)
+					continue Loop1;
+				System.out.print(y);
+			}
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	int _ = $;
+	static int $ = 2;
+	public static void main(String args[]) {
+		System.out.println($);
+		System.out.println(new MyClass()._);
+		System.out.println($ + new MyClass()._);
+	}
+}
+Output: either 4 or compilation error due to (_)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	int x = y;
+	static int y = 10;
+	public static void main(String args[]) {
+		System.out.println(new MyClass().x); //15
+		System.out.println(y);  //15
+	}
+	static {y=15;}
+}
+Output: 15 15
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+
+	public static void type(double x) {
+		System.out.println("double");
+	}
+
+	public static void type(int x) {
+		System.out.println("int");
+	}
+
+	public static void type(byte x) {
+		System.out.println("byte"); // it would not called
+	}
+
+	public static void type(float x) {
+		System.out.println("float");
+	}
+
+	public static void main(String args[]) {
+		type(10);
+		type(10.0f);
+	}
+}
+Output: int float
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+
+	public void test(int i) {
+		System.out.println(i);
+	}
+
+	public void test(float f) {
+		System.out.println(f);
+	}
+
+	public static void main(String args[]) {
+		MyClass obj = new MyClass();
+		obj.test(1.0);    // compilation fails due to 1.0 as a double value
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	int x = 10;
+	static int y = x; // compilation error due to: Cannot make a static reference to the non-static field x
+	// static int z = new MyClass().x; // it will be correct
+
+	public static void main(String args[]) {
+		int x = 2;
+		System.out.println(x + y);  // if (x+z). it will be 12
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	static int x;
+	// static Integer y; it will be null by default not 0
+
+	public static void main(String args[]) {
+		MyClass m1 = new MyClass();
+		MyClass m2 = new MyClass();
+		MyClass m3 = new MyClass();
+		m1.method();
+		m2.method();
+		m3.method();
+	}
+
+	private void method() {
+		while (++x < 3) {
+			System.out.print("A");
+		}
+	}
+}
+Output: AA
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	enum Speed {
+		FAST(2), FASTER(3), SLOW(1);
+		private final int speed;
+		public Speed(int speedCode) { // Compilation fails: Illegal modifier for the enum constructor; only private is permitted.
+			this.speed = speedCode;
+		}
+	}
+
+	public static void main(String args[]) {
+		System.out.println(Speed.FASTER == Speed.FAST);
+	}
+}
+
+
+
+class Animal{  
+	void run(){System.out.println("Animal runs");}  
+} 
+class Dog extends Animal{  
+	void sound(){System.out.println("bark");}   
+	public void run(){System.out.println("Dog runs");}  
+}  
+public class TestInheritance{  
+	public static void main(String args[]){  
+	    Animal d=new Dog();  
+	    d.run();  
+	    d.sound();  // compilation fails as sound is not method of Animal
+	}
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+As exception handling blocks ArithmeticException and NumberFormatException i are not having any relation like parent and child , 
+so order sequence of these two exceptions doesn’t matter. 
+Like in rule 1 we use as order ArithmeticException and NumberFormatException 
+while in this rule using order as  NumberFormatException  and ArithmeticException.
+
+try
+{
+//some code here
+}
+catch (NumberFormatException ex)
+{
+System.out.println("Number Format Exception " + ex);
+}
+catch (ArithmeticException ex)
+{
+System.out.println("Arithmetic " + ex);
+}
+                 
+----------------------OR---------------------
+
+try
+{
+//some code here
+}
+catch (ArithmeticException ex)
+{
+System.out.println("Arithmetic " + ex);
+}
+catch (NumberFormatException ex)
+{
+System.out.println("Number Format Exception " + ex);
+}
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+
+	public static void main(String args[]) {
+		int y = 10;
+		int x = 0;
+		try {
+//			int x = 0;
+			int z = y / x;
+			System.out.println(z);
+		} catch (ArithmeticException ex) {
+			System.out.println("Arithmetic: divided by " + x);
+		} catch (NumberFormatException ex) {
+			System.out.println("Number Format Exception");
+		}
+	}
+}
+Output: Arithmetic: divided by 0
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+
+	public static void main(String args[]) {
+		int y = 10;
+		try {
+			int x = 0;  
+			int z = y / x;
+			System.out.println(z);
+		} catch (ArithmeticException ex) {
+			System.out.println("Arithmetic: divided by " + x);  // compilation fails as x is not defined outside the try catch block
+		} catch (NumberFormatException ex) {
+			System.out.println("Number Format Exception");
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	static Integer i;
+
+	public static void main(String args[]) {
+		try {
+			System.out.println(i.toString());  // i is null, so it will throw runtime exception
+		} catch (RuntimeException ex) {
+			throw ex;  // it will throw runtime exception
+		} catch (Exception e) {
+			System.out.println("e");  // it will not work
+		} finally {
+			System.out.println("fin");
+		}
+	}
+}
+Output: fin followed by exception
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	static Integer i;
+
+	public static void main(String args[]) {
+		try {
+			System.out.print(i);  
+		} catch (RuntimeException ex) {
+			throw ex;  
+		} catch (Exception e) {
+			System.out.print("e");  
+		} finally {
+			System.out.print("fin");
+		}
+	}
+}
+Output: nullfin
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	static Integer i;
+
+	public static void main(String args[]) {
+		try {
+			System.out.print(i.toString());  // i is null, so it will throw runtime exception
+		// } catch (RuntimeException ex) {
+ 		//	 throw ex;  
+		} catch (Exception e) {
+			System.out.print("e");  // it will work
+		} finally {
+			System.out.print("fin");
+		}
+	}
+}
+Output: efin
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.io.IOException;
+
+public class MyClass {
+	static Integer i;
+
+	public static void main(String args[]) {
+		print();
+	}
+
+	private static void print() {
+		try {
+			System.out.println(i++);
+		} catch (IOException e) {  // compilation falls: Unreachable catch block for IOException. This exception is never thrown from the try statement body
+			System.out.println("error");
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.io.IOException;
+
+public class MyClass {
+	static Integer i;
+
+	public static void main(String args[]) {
+		print();
+	}
+
+	private static void print() {
+		try {
+			System.out.println(i++);
+		} catch (NullPointerException e) {  
+			System.out.println("error");
+		}
+	}
+}
+Output: error
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	static Integer i;
+
+	public static void main(String args[]) throws ClassNotFoundException, java.io.IOException {
+		new MyClass().doIt();
+		new MyClass().didIt();
+	}
+
+	private static void doIt() throws java.io.IOException {
+		throw new java.io.IOException();
+	}
+
+	private static void didIt() throws ClassNotFoundException {
+		throw new SecurityException();
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		try {
+			System.out.println("try started");
+			throw new Exception();
+		} catch (Exception e) {
+			throw e; // compilation fails: Unhandled exception type Exception
+		} finally {
+			System.out.println("Finally completed");
+		}
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Note :
+1. Java will not throw an exception if you divide by float zero. 
+2. It will detect a run-time error (Arithmetic Exception) only if you divide by integer zero not double zero. 
+3. If you divide by 0.0, the result will be INFINITY. If you divide double by 0, JVM will show Infinity.
+
+public class MyClass {
+	public static void main(String args[]) {
+		try {
+			double a= 5/0.0;  // or  5.0/0; 
+			System.out.println(a);
+		} catch (Exception e) {
+			throw e; // Unhandled exception type Exception
+		} finally {
+			System.out.println("Finally completed");
+		}
+	}
+}
+Output: Infinity Finally completed
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		Comparable s1 = "Abc";
+		Comparable s2 = new String("Abc");
+		System.out.println(s1); // Abc
+		System.out.println(s2); // Abc
+		System.out.println(s1==s2); // false
+		System.out.println(s1.equals(s2)); //true
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyClass {
+	public static void main(String args[]) {
+		List<String> list = new ArrayList<>();
+		list.add("1");
+		list.add("2");
+		list.add("3");
+		list.add("4");
+		System.out.println(list.set(3, "3"));  // 4
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MyClass {
+	public static void main(String args[]) {
+		char[] chars = new char[4];
+		chars[0] = 0;
+		chars[1] = 2;
+		String out = "123456789";
+		out.getChars(0, 3, chars, 0);
+		for (char c : chars)
+			System.out.print(c);
+	}
+}
+Output: 123
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+public class MyClass {
+	public static void main(String args[]) throws java.io.IOException {
+		String s1 = "DoSelect";
+		s1.substring(1,4);
+		System.out.println(s1.charAt(3));  // string is immutable
+	}
+}
+Output: e 
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
+public class MyClass {
+	public static void main(String args[]) throws java.io.IOException {
+		LocalTime lt = LocalTime.of(22, 10);
+		System.out.println(lt); // 22:10
+		System.out.println(lt.truncatedTo(ChronoUnit.DAYS)); // 00:00
+		System.out.println(lt.truncatedTo(ChronoUnit.HOURS)); //22:00
+		System.out.println(lt.truncatedTo(ChronoUnit.HALF_DAYS)); // 12:00
+		System.out.println(lt.truncatedTo(ChronoUnit.MICROS)); // 22:10
+//		System.out.println(lt.truncatedTo(ChronoUnit.MILLENNIA)); // EXCEPTION
+		System.out.println(lt.truncatedTo(ChronoUnit.MILLIS)); // 22:10
+		System.out.println(lt.truncatedTo(ChronoUnit.MINUTES)); // 22:10
+		System.out.println(lt.truncatedTo(ChronoUnit.NANOS)); // 22:10
+		System.out.println(lt.truncatedTo(ChronoUnit.SECONDS)); // 22:10
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+public class MyClass {
+	public static void main(String args[]) throws java.io.IOException {
+		LocalTime lt = LocalTime.of(12, 30);
+		LocalDate ld = LocalDate.of(2015, 2, 21);
+		LocalDateTime ldt = lt.atDate(ld);
+		ldt.minusYears(2);
+		ldt.minusDays(2);
+		System.out.println(ldt.getYear() + "/" + ldt.getMonthValue() + "/" + ldt.getDayOfWeek());
+		// 2015/2/SATURDAY
+		System.out.println(ldt + " is immutable");
+		// 2015-02-21T12:30 is immutable
+		ldt = ldt.minusDays(2);
+		System.out.println(ldt); // 2015-02-19T12:30
+		System.out.println(ldt.getYear() + "/" + ldt.getMonthValue() + "/" + ldt.getDayOfWeek());
+		// 2015/2/THURSDAY
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.time.LocalDate;
+
+public class MyClass {
+	public static void main(String args[]) throws java.io.IOException {
+		LocalDate ld = LocalDate.ofYearDay(2016, 22);
+		System.out.println(ld.lengthOfMonth()); // 31
+		System.out.println(ld.getMonth()); // January
+		System.out.println(ld.getMonthValue()); // 1
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+public class MyClass {
+	public static void main(String args[]) throws java.io.IOException {
+		LocalDateTime ldt = LocalDateTime.of(LocalDate.of(2015, 3, 3), LocalTime.of(11, 22));
+		ldt.withDayOfMonth(12);
+		System.out.println(ldt.getMonth() + ":" + ldt.getDayOfMonth() + ":" + ldt.getHour());
+		// MARCH:3:11
+		System.out.println(ldt); // 2015-03-03T11:22
+		System.out.println(ldt.withDayOfMonth(12)); // 2015-03-12T11:22
+	}
+}
+

@@ -1,0 +1,942 @@
+public class CompareToExample2{ 
+    
+    public static void main(String[] args) {  
+            int a[]=new int[5]; 
+           try{    
+                // int a[]=new int[5]; 
+                a[5]=30/0;    
+               }    
+               catch(ArrayIndexOutOfBoundsException e)  
+                  {  
+                   System.out.println("ArrayIndexOutOfBounds Exception occurs");  
+                  }    
+               catch(ArithmeticException e)  
+                  {  
+                   System.out.println("Arithmetic Exception occurs " + a[0]);
+                  try{
+                      System.out.println("aaa" + a[5]);
+                  } catch(Exception ex) {
+                  System.out.println("occurs");  
+                  }
+                   
+                  }    
+               catch(Exception e)  
+                  {  
+                   System.out.println("Parent Exception occurs");  
+                  }             
+               System.out.println("rest of the code");    
+    }  
+}  
+
+
+
+public class FinalizeExample{  
+public void finalize(){System.out.println("finalize called");}  
+public static void main(String[] args){  
+FinalizeExample f1=new FinalizeExample();  
+FinalizeExample f2=new FinalizeExample(); 
+System.out.println(f1);
+System.out.println(f2); 
+// f1=null;  
+f1=f2=null;  
+int y=9;
+System.gc(); 
+System.out.println("finally block is executed");
+System.out.println("finally block is executed");
+System.out.println(f1);
+System.out.println(f2);
+System.out.println(y+" aaaaa");
+}}  
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyClass {
+	public static void main(String[] args) {
+		List<String> l = new ArrayList<>();
+		l.add("Tech");
+		l.add("Expert");
+		l.forEach(a -> System.out.println(a));
+		l.set(0, "Java");
+		l.forEach(a -> System.out.println(a));
+		l.forEach(a -> a.concat("Forum"));
+		l.forEach(a -> System.out.println(a));
+		l.replaceAll(s -> s.concat("Group"));
+		l.forEach(a -> System.out.println(a));
+	}
+}
+
+public class MyClass {
+	public static void main(String[] args) {
+		P1 a = new P1();
+		P2 b = new P2();
+		I1 c = new P2();
+		boolean d = a instanceof P2; // false
+		boolean e = b instanceof P1; // true
+		boolean f = c instanceof I1; // true
+		System.out.println(d + " " + e + " " + f);
+	}
+}
+class P1 {}
+class P2 extends P1 implements I1 {}
+interface I1 {}
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		int x = 6;
+		while (isAvailable(x))
+			System.out.print(--x);
+	}
+	private static boolean isAvailable(int x) {
+		return --x > 0 ? true : false;
+	}
+} //54321
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class MyClass {
+	public static void main(String[] args) {
+//		String date = LocalDate.parse("2014-05-04").format(DateTimeFormatter.ISO_DATE_TIME); // will throw exception
+//		String date = LocalDate.parse("2014-05-04").format(DateTimeFormatter.ISO_DATE); // 2014-05-04
+
+		LocalDate date = LocalDate.parse("2014-05-04");
+//		String s = date.format(DateTimeFormatter.ISO_DATE_TIME);
+		System.out.println(date);
+	}
+}
+
+public class MyClass {
+	public static void main(String[] args) {
+		long x =1;
+		switch (x) {  // x can't be long float and double
+		case 2:
+			System.out.println("aaa");
+			break;
+
+		default:
+			System.out.println("sss");
+			break;
+		}
+	}
+}
+
+public class MyClass {
+	public static void main(String[] args) {
+		ArrayList a = new ArrayList();
+		a.add(1);
+		a.add(4);
+		a.add(3);
+		a.add(1);
+		a.add(5);
+		a.remove(1);
+		System.out.println(a); // [1, 3, 1, 5]
+		a.add("a");
+		a.add("c");
+		a.add("b");
+		a.add("a");
+		a.add("d");
+		a.remove("a");
+		System.out.println(a); // [1, 3, 1, 5, c, b, a, d]
+	}
+}
+
+public class MyClass {
+	public static void main(String[] args) {
+		MyClass m = new MyClass();
+		try {
+			m.doPrint();
+			m.doList();
+		} catch (Exception e) {
+			System.out.println("Caught " + e);
+		}
+
+	}
+
+	private void doList() throws Exception {
+		throw new Error("Error");
+
+	}
+
+	private void doPrint() throws Exception {
+		throw new RuntimeException("Exception");
+
+	}
+}
+// Output: Caught java.lang.RuntimeException: Exception
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		int a = 9;
+		if (a++ < 10)
+			System.out.println(a + " Hello World");
+		else
+			System.out.println(a + " Hello Universe");
+	}
+}
+// Output: 10 Hello World
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		Integer num = Integer.parseInt(args[0]);
+		Integer num = Integer.parseInt(args[1]);
+	}
+}
+// Output: index out of bound exception in both cases
+
+public static void main(String[] args) {
+		System.out.println(28 + 5 <= 4 + 29);  // true
+		System.out.println((28 + 5) <= (4 + 29)); // true
+}
+
+public static void main(String[] args) {
+		int x = 5, y = 15;
+		x = x++ + ++y; // x=21, y=16
+		y = ++x + ++y; // x=22, y=39
+		System.out.println(x + " " + y); // 22 39
+}
+
+
+
+public class MyClass {
+	int x = 0, y = 0;
+
+	public static void main(String[] args) {
+		MyClass m = new MyClass();
+		m.printThis(1, 2); // 0 0
+		m.printThat(3, 4); // 3 4
+	}
+
+	private void printThis(int x, int y) {
+		x = x;
+		y = y;
+		System.out.println(this.x + " " + this.y);
+	}
+
+	private void printThat(int x, int y) {
+		this.x = x;
+		this.y = y;
+		System.out.println(this.x + " " + this.y);
+	}
+}
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		try {
+			doSomething();
+		} catch (SpecialException e) {
+			System.out.println(e);
+		}
+	}
+
+	private static void doSomething() throws SpecialException {
+		int[] a = new int[4];
+		a[4] = 17;
+		doSomethingElse();
+
+	}
+
+	private static void doSomethingElse() throws SpecialException {
+		throw new SpecialException("adfs");
+	}
+}
+class SpecialException extends Exception {
+	SpecialException(String m) {
+		super(m);
+	}
+}
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4
+	at MyClass.doSomething(MyClass.java:18)
+	at MyClass.main(MyClass.java:10)
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		int a = -10, b = 17;
+		int c = ++a, d = b--;
+//		System.out.println(a + " " + b); //-9 16
+//		System.out.println(c + " " + d); // -9 17
+		c++;
+		d--;
+		System.out.println(c + " " + d); //-8 16
+	}
+}
+
+
+
+
+public static void main(String[] args) {
+		Short s1 = 200;
+		Integer s2 = 400;
+		Long s3 = (long) s1 + s2;
+//		System.out.println(s1 + " " + s2 + " " + s3); // 200 400 600
+		String s4 = (String) (s3 * s2); // Cannot cast from long to String
+		System.out.println("Sum is " + s4);
+
+//		short a = 200;
+//		System.out.println(a); // 200
+//		Integer b = 400;
+//		Long c = (long) a + b;
+//		System.out.println(a + " " + b + " " + c); // 200 400 600
+}
+
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		S2 obj = new S2();
+		obj.display(10, 100);
+	}
+}
+// Output: 
+//Child 10
+//Child 100
+//Parent 100
+
+class S1 {
+	protected void display(int x) {
+		System.out.println("Parent " + x);
+	}
+}
+
+class S2 extends S1 {
+	public void display(int x, int y) {
+		this.display(x);
+		display(y);
+		super.display(y);
+	}
+
+	public void display(int x) {
+		System.out.println("Child " + x);
+	}
+}
+
+
+public class MyClass {
+	static double area;
+	int b = 2, h = 3;
+
+	public static void main(String[] args) {
+		double p, b, h;
+		if (area == 0) {
+			b = 3;
+			h = 4;
+			p = 0.5;
+			area = p * b * h;
+		}
+		System.out.println(area);   // 6.0
+	}
+}
+
+public static void main(String[] args) {
+		int s=0;
+		for(int i=1;i<=5;i++)
+			s=s+i;
+		System.out.println(i+" "+s); // compilation fails
+}
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		Double o = (double) 200;
+		Double p = 200d;
+		Double q = 200D;
+//		Double r=200;  // not allowed
+		Integer a = 123;
+		Long b = 32L;
+		Long c = 32l;
+		Long d = (long) 32;
+//		Long e = 32; // not allowed
+		Float f = 123F;
+		Float g = 123f;
+		Float h = (float) 123;
+//		Float i = 123; // not allowed
+
+		boolean u = Boolean.valueOf("TRUE");
+		boolean v = Boolean.valueOf("true");
+		boolean w = Boolean.valueOf("trUe");
+		boolean x = Boolean.valueOf("TrUe");
+		System.out.println(u + " " + v + " " + w + " " + x);  // true true true true
+	}
+}
+
+
+String s[][] = new String[][] { { "r", "b" }, { "s", "m" } };
+		for (String[] c : s)
+			for (String a : c)
+				System.out.print(a + " ");  // r, b, s, m
+
+
+int a[]= {1,2,3};
+		int b[]=new int[5];
+		b=a;
+		for(int i:b)
+			System.out.print(i+" ");  // 1 2 3 
+		System.out.println();
+		int c[]=new int[3];
+		c=b;
+		for(int i:c)
+			System.out.print(i+" ");  // 1 2 3 
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		int l = 1;
+		MyClass o = new MyClass();
+		if (l <= 5 && l >= 3) {
+			o.m1();
+		} else {
+			o.m2();
+		}
+
+	}
+
+	public void m1() {
+		System.out.println("m1.Accessed");
+		throw new E1(); // Unhandled exception type E1
+	}
+
+	public void m2() {
+		System.out.println("m1.Accessed");
+		throw new E2();
+	}
+}
+class E1 extends Exception {
+}
+class E2 extends RuntimeException {
+}
+
+
+class A {
+	static int hitCount;
+	static void printHitCount() {
+		System.out.println("A class " + hitCount);
+	}
+}
+class B extends A {
+	static void printHitCount() {
+		System.out.println("B class " + hitCount);
+	}
+}
+public class MyClass {
+	public static void main(String[] args) {
+		A.hitCount = 100;
+		B.hitCount = 200;
+		A.printHitCount(); // A class 200
+		B.printHitCount(); // B class 200
+		A a = new B();
+		a.printHitCount(); // A class 200
+		B b =(B)a;
+		b.printHitCount(); // B class 200
+	}
+}
+
+
+
+package root;
+public class Tree {
+	public void m1() {}
+	private void m2() {}
+	protected void m3() {} 
+	void m4() {}
+}
+
+package branch;
+import root.Tree;
+public class Plant extends Tree {
+	public void m1() {}
+	public void m2() {}
+	public void m3() {} 
+	public void m4() {}
+	public static void main(String[] args) {
+		Plant p = new Plant();
+		p.m1();
+		p.m2();
+		p.m3();
+		p.m4();
+		Tree t = new Plant();
+		t.m1();
+		t.m2(); // The method m2() from the type Tree is not visible
+		t.m3(); // The method m3() from the type Tree is not visible
+		t.m4(); // The method m4() from the type Tree is not visible
+	}
+}
+
+package branch;
+import root.Tree;
+public class Plant extends Tree {
+	public static void main(String[] args) {
+		Plant p = new Plant();
+		p.m1();
+		p.m2();  // The method m2() from the type Tree is not visible
+		p.m3();
+		p.m4();  // The method m2() from the type Tree is not visible
+	}
+}
+
+
+public class MyClass {
+	String greet = "Welcome";
+	public MyClass() {
+		String greet = "Hello";
+	}
+	public void setGreet() {
+		String greet = "Good Day";
+	}
+	public static void main(String[] args) {
+		MyClass m = new MyClass();
+		String greet = "Good Luck";
+		System.out.println(m.greet); // Welcome
+		System.out.println(m.greet = greet); // Good Luck
+		System.out.println(m.greet); // Good Luck
+	}
+}
+
+
+
+public static void main(String[] args) {
+		int p = 1000;
+		int q = 2;
+		String g = "2";
+		double d = 0.0;
+		switch (g) {
+		case "1":
+			d = p * 0.1;
+			break;
+		case "2":
+			d = p * 0.5;
+			g = "3";
+//			continue; // continue cannot be used outside of a loop
+		default:
+			System.out.println("Thank you");
+		}
+		System.out.println(d);
+	}
+}
+
+
+
+public class MyClass {
+	String s;
+
+	public boolean equals(MyClass str) {
+		System.out.println("it will not invoke the method due to its argument type");
+		return this.s.equalsIgnoreCase(str.toString());
+	}
+
+	public MyClass(String s) {
+		this.s = s;
+	}
+
+	public static void main(String[] args) {
+		String s1 = "Moon";
+		MyClass m = new MyClass("Moon");
+
+//		String s2 = new String("Moon");
+//		System.out.println(s2); // Moon
+//		if (s2 == "Moon")
+//			System.out.println("Compile but not print");
+//		if (m.equals("Moon")) 
+		// Unlikely argument type for equals(): String seems to be unrelated to MyClass
+//			System.out.println("Compile but not print");
+
+//		System.out.println(s1); Moon
+//		System.out.println(m); // MyClass@36baf30c
+		m.equals("Moon"); // it will not invoke the method due to its argument type
+
+		if ((s1 == "Moon") && (m.equals("Moon")))
+			System.out.println("A");
+		else
+			System.out.println("B");
+		if ((s1.equalsIgnoreCase(m.s)))
+			System.out.println("C");
+		else
+			System.out.println("D");
+	}
+}
+// Output: BC
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		List<A> l = new ArrayList<>();
+		l.add(new A(10, "Akash"));
+		l.add(new A(11, "Golu"));
+		A a = new A(10, "Akash"); // it will create new object
+		System.out.println(l.indexOf(a)); // -1 due to address changed
+		l.add(a);
+		System.out.println(l.indexOf(a)); // 2
+		System.out.println(a); // A@7a81197d
+		System.out.println("0th address " + l.get(0)); // 0th address A@5ca881b5
+		System.out.println("1st address " + l.get(1)); // 1st address A@24d46ca6
+		System.out.println("2nd address " + l.get(2)); // 2nd address A@7a81197d
+	}
+}
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		Product pr = new Product();
+		pr.price = 200;
+
+		double newPrice = 100;
+		MyClass m = new MyClass();
+		m.updatePrice(pr, newPrice);
+		System.out.println(pr.price + " " + newPrice);
+
+	}
+
+	private void updatePrice(Product pr, double price) {
+		price = price * 2;
+		pr.price = pr.price + price;
+	}
+}Output: 400.0 100.0
+
+
+What is the name of the Java concept that uses access modifiers to protect variables and hide them within a class?
+A. Encapsulation
+B. Inheritance
+C. Abstraction
+D. Instantiation
+E. Polymorphism
+ 
+Correct Answer: A
+Using the private modifier is the main way that an object encapsulates itself and hide data from the outside world.
+Reference:
+http://www.tutorialspoint.com/java/java_access_modifiers.html
+
+
+
+if you use this() and super() together in a constructor it will give compile time error. 
+Because this() and super() must be the first executable statement. If you write this() first than super() will 
+become the second statement and vice-versa. That's why we can't use this() and super() together.
+class Vehicle {
+	String type = "4W";
+	int maxSpeed = 100;
+
+	Vehicle() {
+		System.out.println("AAA");
+	}
+
+	Vehicle(String type, int maxSpeed) {
+		this.type = type;
+		this.maxSpeed = maxSpeed;
+	}
+}
+class Car extends Vehicle {
+	String trans;
+
+	Car(String trans) {
+		this.trans = trans;
+	}
+	Car(String type, int maxSpeed, String trans) {
+		super(type, maxSpeed);
+//		this(trans);
+	}
+
+}
+public class MyClass {
+	public static void main(String[] args) {
+		Car c = new Car("tt", 7, "uu"); // AAA
+	}
+}
+
+Note: But implicit super and explicit this constructor can be called.
+class Vehicle {
+	String type = "4W";
+	int maxSpeed = 100;
+	Vehicle() {
+		System.out.println("AAA");
+	}
+	Vehicle(String type, int maxSpeed) {
+		this.type = type;
+		this.maxSpeed = maxSpeed;
+	}
+}
+class Car extends Vehicle {
+	String trans;
+	Car(String trans) {
+		System.out.println("sssss");
+		this.trans = trans;
+	}
+	Car(String type, int maxSpeed, String trans) {
+		this(trans);
+	}
+}
+public class MyClass {
+	public static void main(String[] args) {
+		Car c = new Car("tt", 7, "uu"); // AAA sssss
+	}
+}
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		StringBuilder sb = new StringBuilder(5);
+		String str = "";
+		System.out.println(sb.toString().equals(str.toString())); //TRUE
+		System.out.println(sb.toString().equals(str)); // TRUE
+		System.out.println(sb.equals(str));  // FALSE
+	}
+}
+
+String ta = "A";
+		ta = ta.concat("B");
+		String tb = "C";
+		ta = ta.concat(tb);
+		ta.replace('C', 'D');
+		ta = ta.concat(tb);
+		System.out.println(ta);
+//ABCC
+
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		int x = 5;
+		while (isAvailable(x)) {
+			System.out.println(x);
+			x--;
+
+		}
+	}
+	private static boolean isAvailable(int x) {
+
+		return x-- > 0 ? true : false;
+	}
+}//54321
+
+Note: Boolean can't be used in switch
+ the number of ? must be equal to the number of :
+
+
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		String[][] chs = new String[2][];
+		chs[0] = new String[2];
+		chs[1] = new String[5];
+		int i = 97;
+		for (int a = 0; a < chs.length; a++) {
+			for (int b = 0; b < chs.length; b++) {
+				chs[a][b] = " " + i;
+				i++;
+			}
+		}
+		for (String[] ca : chs) {
+			for (String c : ca) {
+				System.out.print(c + " ");
+			}
+			System.out.println();
+		}
+	}
+}
+97  98 
+99  100 null null null 
+
+
+
+public class MyClass {
+    public static void main(String args[]) {
+      boolean b = true;  // TRUE, True, TrUe is not valid for boolean
+      double s =100.1;
+      float y=9.88889f;
+
+      System.out.println(s); // 100.1 
+      System.out.println(y); // 9.88889
+      s=y;
+      System.out.println(s); // 9.888890266418457
+      System.out.println(y); /// 9.88889
+      System.out.println(s==y); // true
+      System.out.println(String.valueOf(s).equals(String.valueOf(y))); // false
+      System.out.println(String.valueOf(s)==(String.valueOf(y))); // false
+    }
+}
+
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+     List <String> names = new ArrayList<>();
+        names.add("Robb");
+        names.add("Bran");
+        names.add("Rick");
+        names.add("Bran");
+        if (names.remove("Bran")) {
+            names.remove("Jon");
+        }
+        System.out.println(names);
+    }
+} // [Robb, Rick, Bran]
+
+
+javac Demo.java
+While running a class Demo, you can specify command line arguments as
+java Demo arg1 arg2 arg3 …
+
+
+
+Which three are advantages of the Java exception mechanism?
+A. Improves the program structure because the error handling code is separated from the normal program function
+B. Provides a set of standard exceptions that covers all the possible errors
+C. Improves the program structure because the programmer can choose where to handle exceptions
+D. Improves the program structure because exceptions must be handled in the method in which they occurred
+E. Allows the creation of new exceptions that are tailored to the particular program being created
+
+ACE should be correct
+
+
+
+public class MyClass {
+	int ns;
+	static int s;
+
+	public MyClass(int ns) {
+		if (s < ns) {
+			s = ns;
+			this.ns = ns;
+		}
+	}
+
+	void doPrint() {
+		System.out.println("ns = " + ns + "s = " + s);
+	}
+
+	public static void main(String[] args) {
+		MyClass ref1 = new MyClass(50);
+		MyClass ref2 = new MyClass(125);
+		MyClass ref3 = new MyClass(100);
+		ref1.doPrint();
+		ref2.doPrint();
+		ref3.doPrint();
+	}
+}
+ns = 50s = 125
+ns = 125s = 125
+ns = 0s = 125
+
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		LocalDate date1 = LocalDate.now();
+		LocalDate date2 = LocalDate.of(2014, 6, 20);
+		LocalDate date3 = LocalDate.parse("2014-06-20", DateTimeFormatter.ISO_DATE);
+		System.out.println("date1 = " + date1);
+		System.out.println("date2 = " + date2);
+		System.out.println("date3 = " + date3);
+	}
+}
+date1 = 2021-03-04
+date2 = 2014-06-20
+date3 = 2014-06-20
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		StringBuilder sb1 = new StringBuilder("Duke");
+		String str1 = sb1.toString();
+		String str2 = str1;
+		String str3 = "Duke";
+		String str4 = "Duke";
+		System.out.println(str1 == str2); // true
+		System.out.println(str1 == str3); // false
+		System.out.println(str4 == str3); // true
+	}
+}
+
+
+
+public class MyClass {
+	public static void main(String[] args) { 
+		args = new String[]{"Hello","-"};
+//		System.out.println(args[0]); // Hello
+		if (args[0].equals("Hello") ? false : true) {
+			System.out.println("Success");
+		} else {
+			System.out.println("Failure");
+		}
+	}
+}
+
+
+
+
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+public class MyClass {
+	public static void main(String[] args) {
+		// create a formater
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy 'at' HH-mm");
+		// create an LocalDateTime object and
+		LocalDateTime lt = LocalDateTime.parse("01-12-2001 at 23-59", formatter);
+		// print result
+		System.out.println("LocalDateTime : " + lt);
+	}
+}
+
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		// create a formater
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+		// create an LocalDateTime object and
+		LocalDateTime lt = LocalDateTime.parse("2018-12-30T19:34:50.63");
+		// print result
+		System.out.println("LocalDateTime : " + lt.format(formatter));
+	}
+}
+
+LocalDateTime lt = LocalDateTime.parse("2018-12-30T");  //java.time.format.DateTimeParseException
+
+
+
+public class MyClass {
+	public static void main(String[] args) {
+		float a = 1.9f;
+		double b = 1.9;
+		System.out.println("Normal Value of float a = 1.9f is " + a);
+		System.out.println("Normal Value of double b = 1.9 is " + b);
+		System.out.println("String Value of float a = 1.9f is " + String.valueOf(a));
+		System.out.println("String Value of double b = 1.9 is " + String.valueOf(b));
+		System.out.print("Checking equals method between float a = 1.9f and double b = 1.9 ");
+		System.out.println(String.valueOf(a).equals(String.valueOf(b))); //true
+		System.out.print("Checking == operator between float a = 1.9f and double b = 1.9 ");
+		System.out.println(a == b); // false
+
+		float c = 1.9f;
+		double d = 1.9f;
+		System.out.println("Normal Value of float c = 1.9f is " + c);
+		System.out.println("Normal Value of double d = 1.9f is " + d);
+		System.out.println("String Value of float c = 1.9f is " + String.valueOf(c));
+		System.out.println("String Value of double d = 1.9f is " + String.valueOf(d));
+		System.out.print("Checking equals method between float c = 1.9f and double d = 1.9f ");
+		System.out.println(String.valueOf(c).equals(String.valueOf(d))); //false
+		System.out.print("Checking == operator between float c = 1.9f and double d = 1.9f ");
+		System.out.println(c == d); //true
+	}
+}
+
+
+
+interface MyData {
+	default void print() {
+			System.out.println("MyData Print::");
+	}
+	static void method() {
+		System.out.println("Interface Check");
+	}
+}
+public class MyClass {
+
+	public static void main(String[] args) {
+		MyData m= new MyData() {};
+		m.print();
+//		m.method();  // complie fails
+		MyData.method();
+}
